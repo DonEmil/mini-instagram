@@ -55,6 +55,15 @@ if(isset($_POST['submit'])){
         // Trim white space from the confirm_password and store the confirm_password
         $_confirm_password = trim($_POST['confirm_password']);
  
+    }    
+    
+    if ($_password != $_confirm_password){
+        //I add 'Confirm Password' to our missing data to make sure that we won't continue the process of registering this user.
+        $data_missing[] = 'Confirm Password';
+        echo 'Your password is not matching your confirmed password<br />';
+    } else {
+        //Password and confirmed password matched, and we can now encrypt the password.
+        $password = $mysqli->escape_string(password_hash($_POST['password'], PASSWORD_BCRYPT));
     }
     
     if(empty($data_missing)){
