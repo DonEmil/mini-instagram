@@ -38,6 +38,7 @@
 
                 if (filter_var($_email, FILTER_VALIDATE_EMAIL)) {
 
+
                     $_check_email = $dbc->query("SELECT * FROM users WHERE email='$_email'"); // or die($mysqli->error());
                     // We know email exists if the rows returned are more than 0
                     if ($_check_email->num_rows > 0) {
@@ -81,8 +82,6 @@
             }
 
             if (empty($data_missing)) {
-
-                require_once('../mysqli_connect.php');
 
                 $query = "INSERT INTO users (username, email, password, confirm_password) VALUES (?, ?, ?, ?)";
 
