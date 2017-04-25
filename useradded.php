@@ -14,9 +14,11 @@
                 $data_missing[] = 'Username';
             } else {
 
+                require_once('../mysqli_connect.php');
+
                 // Trim white space from the username and store the username
                 $_username = trim($_POST['username']);
-                $_check_username = $mysqli->query("SELECT * FROM users WHERE username='$_username'") // or die($mysqli->error());
+                $_check_username = $dbc->query("SELECT * FROM users WHERE username='$_username'"); // or die($mysqli->error());
                 // We know username exists if the rows returned are more than 0
                 if ($_check_username->num_rows > 0) {
                     echo 'A user with ' . $_username . ' alredy exists<br />';
@@ -36,7 +38,7 @@
 
                 if (filter_var($_email, FILTER_VALIDATE_EMAIL)) {
 
-                    $_check_email = $mysqli->query("SELECT * FROM users WHERE email='$_email'") // or die($mysqli->error());
+                    $_check_email = $dbc->query("SELECT * FROM users WHERE email='$_email'"); // or die($mysqli->error());
                     // We know email exists if the rows returned are more than 0
                     if ($_check_email->num_rows > 0) {
                         echo 'A user with ' . $_email . ' alredy exists<br />';
@@ -75,7 +77,7 @@
                 echo 'Your password is not matching your confirmed password<br />';
             } else {
                 //Password and confirmed password matched, and we can now encrypt the password.
-                $password = $mysqli->escape_string(password_hash($_POST['password'], PASSWORD_BCRYPT));
+                $password = $dbc->escape_string(password_hash($_POST['password'], PASSWORD_BCRYPT));
             }
 
             if (empty($data_missing)) {
