@@ -78,7 +78,7 @@
                 echo 'Your password is not matching your confirmed password<br />';
             } else {
                 //Password and confirmed password matched, and we can now encrypt the password.
-                $password = $dbc->escape_string(password_hash($_POST['password'], PASSWORD_BCRYPT));
+                $_password = $dbc->escape_string(password_hash($_POST['password'], PASSWORD_BCRYPT));
             }
 
             if (empty($data_missing)) {
