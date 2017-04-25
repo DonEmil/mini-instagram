@@ -1,5 +1,6 @@
 <html>
     <head>
+        <link rel="stylesheet" href="index.css">
         <title>Add User</title>
     </head>
     <body>
@@ -114,7 +115,7 @@
                 }
             } else {
 
-                echo 'You need to enter the following data<br />';
+                echo 'You need to enter the following data correctly<br />';
 
                 foreach ($data_missing as $missing) {
 
@@ -123,5 +124,9 @@
             }
         }
         ?>
+        
+        <form action="http://localhost/mini-instagram/register.html">
+        <input type="submit" value="Go back to register page" />
+        </form>
     </body>
 </html>
