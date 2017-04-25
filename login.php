@@ -29,7 +29,7 @@
                     $_user = $_check_username->fetch_assoc();
                     if(password_verify($_POST['password'], $_user['password'])){
 
-                        header("location: main.html");
+                        header("location: main.php");
 
                     } else {
 
