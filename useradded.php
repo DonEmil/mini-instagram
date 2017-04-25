@@ -16,15 +16,12 @@
 
                 // Trim white space from the username and store the username
                 $_username = trim($_POST['username']);
-
-                if (!filter_var($_email, FILTER_VALIDATE_EMAIL)) {
-                    $_check_username = $mysqli->query("SELECT * FROM users WHERE username='$_username'") // or die($mysqli->error());
-                    // We know username exists if the rows returned are more than 0
-                    if ($_check_username->num_rows > 0) {
-                        echo 'A user with ' . $_username . ' alredy exists<br />';
-                        //I add the username to the list of missing data, so that the user has to add another.
-                        $data_missing[] = 'Username';
-                    }
+                $_check_username = $mysqli->query("SELECT * FROM users WHERE username='$_username'") // or die($mysqli->error());
+                // We know username exists if the rows returned are more than 0
+                if ($_check_username->num_rows > 0) {
+                    echo 'A user with ' . $_username . ' alredy exists<br />';
+                    //I add the username to the list of missing data, so that the user has to add another.
+                    $data_missing[] = 'Username';
                 }
             }
 
@@ -36,12 +33,19 @@
 
                 // Trim white space from the email and store the email
                 $_email = trim($_POST['email']);
-                $_check_email = $mysqli->query("SELECT * FROM users WHERE email='$_email'") // or die($mysqli->error());
-                // We know email exists if the rows returned are more than 0
-                if ($_check_email->num_rows > 0) {
-                    echo 'A user with ' . $_email . ' alredy exists<br />';
-                    //I add the email to the list of missing data, so that the user has to add another.
+
+                if (filter_var($_email, FILTER_VALIDATE_EMAIL)) {
+
+                    $_check_email = $mysqli->query("SELECT * FROM users WHERE email='$_email'") // or die($mysqli->error());
+                    // We know email exists if the rows returned are more than 0
+                    if ($_check_email->num_rows > 0) {
+                        echo 'A user with ' . $_email . ' alredy exists<br />';
+                        //I add the email to the list of missing data, so that the user has to add another.
+                        $data_missing[] = 'E-mail';
+                    }
+                } else {
                     $data_missing[] = 'E-mail';
+                    echo 'The email entered is not a valid email<br />';
                 }
             }
 
