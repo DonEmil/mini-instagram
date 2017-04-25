@@ -17,6 +17,11 @@
         </form>
 
         <?php
+        
+        if (!is_dir('uploads')) {
+            mkdir('uploads', 0777, true);
+        }
+        
         $dirname = "uploads/";
         $images = glob($dirname."*.{jpg,gif,png}",GLOB_BRACE);
 
