@@ -21,7 +21,7 @@
                 $_check_username = $dbc->query("SELECT * FROM users WHERE username='$_username'"); // or die($mysqli->error());
                 // We know username exists if the rows returned are more than 0
                 if ($_check_username->num_rows > 0) {
-                    echo 'A user with ' . $_username . ' alredy exists<br />';
+                    echo 'A user with the username: "' . $_username . '" already exists<br />';
                     //I add the username to the list of missing data, so that the user has to add another.
                     $data_missing[] = 'Username';
                 }
@@ -42,7 +42,7 @@
                     $_check_email = $dbc->query("SELECT * FROM users WHERE email='$_email'"); // or die($mysqli->error());
                     // We know email exists if the rows returned are more than 0
                     if ($_check_email->num_rows > 0) {
-                        echo 'A user with ' . $_email . ' alredy exists<br />';
+                        echo 'A user with the email: "' . $_email . '" already exists<br />';
                         //I add the email to the list of missing data, so that the user has to add another.
                         $data_missing[] = 'E-mail';
                     }
