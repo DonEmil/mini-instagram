@@ -8,6 +8,8 @@
         <div id="fullscreen_bg" class="fullscreen_bg"/>
         
         <?php
+
+        session_start();
         if (isset($_POST['login'])) {
 
             $data_missing = array();
@@ -28,6 +30,8 @@
                     // great, a user exists with the given username
                     $_user = $_check_username->fetch_assoc();
                     if(password_verify($_POST['password'], $_user['password'])){
+
+                        $_SESSION["current_user"] = $_username;
 
                         header("location: main.php");
 

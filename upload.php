@@ -8,9 +8,9 @@
         <div id="fullscreen_bg" class="fullscreen_bg"/>
 
         <?php
+        session_start();
         
-        
-        $target_dir = "uploads/";
+        $target_dir = "uploads/" . $_SESSION["current_user"] . '/';
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
         $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);

@@ -17,13 +17,20 @@
         </form>
 
         <?php
-        
+        session_start();
         if (!is_dir('uploads')) {
             mkdir('uploads', 0777, true);
         }
+
+        if (!is_dir('uploads/' . $_SESSION["current_user"])) {
+            mkdir('uploads/' . $_SESSION["current_user"], 0777, true);
+        }
+
+
         
-        $dirname = "uploads/";
+        $dirname = "uploads/" . $_SESSION["current_user"] . '/';
         $images = glob($dirname."*.{jpg,gif,png}",GLOB_BRACE);
+
 
         foreach ($images as $image) {
             echo '<img src="' . $image . '" height="420" width="420" /><br />';
