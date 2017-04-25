@@ -4,7 +4,6 @@
         <title>Mini Instagram</title>
     </head>
     <body>
-        here you can view some photos
 
         <form action="http://localhost/mini-instagram/index.html">
             <input type="submit" value="Log out" />
@@ -28,13 +27,39 @@
 
 
         
-        $dirname = "uploads/" . $_SESSION["current_user"] . '/';
-        $images = glob($dirname."*.{jpg,gif,png}",GLOB_BRACE);
+        $path    = 'uploads/';
+        $results = scandir($path);
+        $directories = array();
+        $images2display = array();
+        $images2displayWithKeys = array();
 
 
-        foreach ($images as $image) {
+        foreach ($results as $result) {
+            if ($result === '.' or $result === '..') continue;
+
+            if (is_dir($path . '/' . $result)){
+                array_push($directories,$result);
+            }
+        }
+
+        foreach ($directories as $directory) {
+            $dirname = "uploads/" . $directory . '/';
+            $tempimages = glob($dirname."*.{jpg,jpeg,gif,png}",GLOB_BRACE);
+                foreach ($tempimages as $image) {
+                    array_push($images2display, $image);
+                }
+        }
+
+        foreach ($images2display as $file) {
+            $images2displayWithKeys[filectime($file)] = $file;
+        }
+
+        krsort($images2displayWithKeys);
+
+        foreach ($images2displayWithKeys as $image) {
             echo '<img src="' . $image . '" height="420" width="420" /><br />';
         }
+
         ?>
 
 
