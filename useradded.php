@@ -4,6 +4,9 @@
         <title>Add User</title>
     </head>
     <body>
+        
+        <div id="fullscreen_bg" class="fullscreen_bg"/>
+        
         <?php
         if (isset($_POST['submit'])) {
 
