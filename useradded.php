@@ -18,7 +18,15 @@ if(isset($_POST['submit'])){
  
         // Trim white space from the username and store the username
         $_username = trim($_POST['username']);
- 
+        
+        $_check_username = $mysqli->query("SELECT * FROM users WHERE username='$_username'") // or die($mysqli->error());
+        
+        // We know username exists if the rows returned are more than 0
+        if ($_check_username->num_rows > 0) {
+            echo 'A user with ' . $_username . ' alredy exists<br />';
+            //I add the username to the list of missing data, so that the user has to add another.
+            $data_missing[] = 'Username';
+        }
     }
  
     if(empty($_POST['email'])){
