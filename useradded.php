@@ -105,7 +105,7 @@
 
                     mysqli_close($dbc);
 
-                    header("Location: main.html");
+                    header("Location: index.html");
                     die();
                 } else {
 
