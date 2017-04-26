@@ -11,7 +11,6 @@
     <body>
     <center>
         
-        <div id="fullscreen_bg" class="fullscreen_bg"/>
 
         <form action="/mini-instagram/index.php">
             <input type="submit" value="Log out" />
