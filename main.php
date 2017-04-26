@@ -2,13 +2,14 @@
 <html>
     <head>
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="bootstrap.css">
 
         <!-- Optional theme -->
         <link rel="stylesheet" href="index.css">
         <title>Mini Instagram</title>
     </head>
     <body>
+    <center>
         
         <div id="fullscreen_bg" class="fullscreen_bg"/>
 
@@ -21,7 +22,6 @@
             <input type="file" name="fileToUpload" id="fileToUpload">
             <input type="submit" value="Upload Image" name="submit">
         </form>
-        
 
         <?php
         session_start();
@@ -66,10 +66,10 @@
         krsort($images2displayWithKeys);
 
         foreach ($images2displayWithKeys as $image) {
-            echo '<img src="' . $image . '"class="img-rounded"" height="420" width="420" /><br />';
+            
+            echo '<img src="' . $image . '"class="img-circle"" height="420" width="420" /><br />';
         }
         ?>
-
-
+        </center>
     </body>
 </html>
