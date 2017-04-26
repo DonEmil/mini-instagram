@@ -31,9 +31,11 @@
 
 
         </form>
+        <div class="container">
 
-        <form action="/mini-instagram/register.html">
-            <input type="submit" value="Go to register page" />
-        </form>
+            <form action="/mini-instagram/register.html">
+                <input type="submit" value="Go to register page" />
+            </form>
+        </div>
     </body>
 </html>
