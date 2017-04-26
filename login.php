@@ -1,6 +1,10 @@
 <html>
     <head>
-        <link rel="stylesheet" href="index.css">
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="index.css">
         <title>Add User</title>
     </head>
     <body>
@@ -64,7 +68,7 @@
         }
         ?>
         
-        <form action="mini-instagram/index.php">
+        <form action="index.php">
         <input type="submit" value="Go back to login page" />
         </form>
     </body>
