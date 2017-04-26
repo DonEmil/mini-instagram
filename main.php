@@ -11,6 +11,7 @@
     <body>
     <center>
         
+        <div id="fullscreen_bg_white" class="fullscreen_bg_white"/>
 
         <form action="/mini-instagram/index.php">
             <input type="submit" value="Log out" />
@@ -66,7 +67,7 @@
 
         foreach ($images2displayWithKeys as $image) {
             
-            echo '<img src="' . $image . '"class="img-circle"" height="420" width="420" /><br />';
+            echo '<img src="' . $image . '"class="img-circle" height="420" width="420" /><br />';
         }
         ?>
         </center>
