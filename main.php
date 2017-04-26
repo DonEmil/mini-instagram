@@ -63,7 +63,7 @@
         krsort($images2displayWithKeys);
 
         foreach ($images2displayWithKeys as $image) {
-            echo '<img src="' . $image . '" height="420" width="420" /><br />';
+            echo '<img src="' . $image . '"class="img-rounded"" height="420" width="420" /><br />';
         }
         ?>
 
