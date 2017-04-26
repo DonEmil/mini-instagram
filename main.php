@@ -9,6 +9,8 @@
         <title>Mini Instagram</title>
     </head>
     <body>
+        
+        <div id="fullscreen_bg" class="fullscreen_bg"/>
 
         <form action="/mini-instagram/index.php">
             <input type="submit" value="Log out" />
@@ -19,6 +21,7 @@
             <input type="file" name="fileToUpload" id="fileToUpload">
             <input type="submit" value="Upload Image" name="submit">
         </form>
+        
 
         <?php
         session_start();
