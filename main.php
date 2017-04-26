@@ -55,15 +55,17 @@
 
             foreach ($directories as $directory) {
                 $dirname = "uploads/" . $directory . '/';
-                $tempimages = glob($dirname . "*.{jpg,jpeg,gif,png}", GLOB_BRACE);
+                $tempimages = glob($dirname . "*.{jpg,jpeg,gif,png,JPG,JPEG,GIF,PNG}", GLOB_BRACE);
                 foreach ($tempimages as $image) {
+                    
                     array_push($images2display, $image);
+
                 }
             }
 
         } else {
             $dirname = "uploads/" . $_SESSION["view_user"] . '/';
-                $tempimages = glob($dirname . "*.{jpg,jpeg,gif,png}", GLOB_BRACE);
+                $tempimages = glob($dirname . "*.{jpg,jpeg,gif,png,JPG,JPEG,GIF,PNG}", GLOB_BRACE);
                 foreach ($tempimages as $image) {
                     array_push($images2display, $image);
                 }
@@ -79,19 +81,27 @@
         foreach ($images2displayWithKeys as $image) {
             $parent = basename(dirname($image));
             echo "<p>This image was uploaded by user: $parent</p>";
-            echo '<img src="' . $image . '"class="img-rounded" height="420" width="420" /><br />';
+            echo '<img src="' . $image . '"class="img-circle" height="420" width="420" /><br />';
             echo "<br /> <br />";
         }
         
 
         foreach ($directories as $directory) {
-            echo $directory;
+            echo '  <form action="/mini-instagram/userclicked.php" method="post" >
+                    <input " type="submit" value="' . $directory . '" name="submit">
+                    </form>';
             echo "<br />";
         }
-        echo "show all images";
+        echo '  <form action="/mini-instagram/userclicked.php" method="post" >
+                    <input " type="submit" value="show_all" name="submit">
+                    </form>';
         echo "<br />";
         
 echo "</center>";
+
+
+
+
         ?>
         
     </body>

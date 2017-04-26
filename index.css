@@ -90,3 +90,14 @@
     text-align: center;
     text-shadow: 0 2px 2px rgba(0,0,0,0.5);
   }
+
+  .container_signin{
+    padding-right: 350px;
+    padding-left: 350px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+ .img {
+    image-orientation: from-image;
+ }
