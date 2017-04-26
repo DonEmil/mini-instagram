@@ -51,25 +51,48 @@
             }
         }
 
-        foreach ($directories as $directory) {
-            $dirname = "uploads/" . $directory . '/';
-            $tempimages = glob($dirname . "*.{jpg,jpeg,gif,png}", GLOB_BRACE);
-            foreach ($tempimages as $image) {
-                array_push($images2display, $image);
+        if($_SESSION["view_user"] == "show_all"){
+
+            foreach ($directories as $directory) {
+                $dirname = "uploads/" . $directory . '/';
+                $tempimages = glob($dirname . "*.{jpg,jpeg,gif,png}", GLOB_BRACE);
+                foreach ($tempimages as $image) {
+                    array_push($images2display, $image);
+                }
             }
+
+        } else {
+            $dirname = "uploads/" . $_SESSION["view_user"] . '/';
+                $tempimages = glob($dirname . "*.{jpg,jpeg,gif,png}", GLOB_BRACE);
+                foreach ($tempimages as $image) {
+                    array_push($images2display, $image);
+                }
         }
 
         foreach ($images2display as $file) {
             $images2displayWithKeys[filectime($file)] = $file;
         }
 
+
         krsort($images2displayWithKeys);
 
         foreach ($images2displayWithKeys as $image) {
-            
-            echo '<img src="' . $image . '"class="img-circle" height="420" width="420" /><br />';
+            $parent = basename(dirname($image));
+            echo "<p>This image was uploaded by user: $parent</p>";
+            echo '<img src="' . $image . '"class="img-rounded" height="420" width="420" /><br />';
+            echo "<br /> <br />";
         }
+        
+
+        foreach ($directories as $directory) {
+            echo $directory;
+            echo "<br />";
+        }
+        echo "show all images";
+        echo "<br />";
+        
+echo "</center>";
         ?>
-        </center>
+        
     </body>
 </html>

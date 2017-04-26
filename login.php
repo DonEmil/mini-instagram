@@ -35,6 +35,7 @@
                     if (password_verify($_POST['password'], $_user['password'])) {
 
                         $_SESSION["current_user"] = $_username;
+                        $_SESSION["view_user"] = "show_all";
 
                         header("location: main.php");
                     } else {
