@@ -105,7 +105,7 @@
 
                     mysqli_close($dbc);
 
-                    header("Location: index.html");
+                    header("Location: index.php");
                     die();
                 } else {
 
@@ -127,7 +127,7 @@
         }
         ?>
         
-        <form action="http://localhost/mini-instagram/register.html">
+        <form action="/mini-instagram/register.html">
         <input type="submit" value="Go back to register page" />
         </form>
     </body>

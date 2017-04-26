@@ -5,7 +5,7 @@
     </head>
     <body>
 
-        <form action="http://localhost/mini-instagram/index.html">
+        <form action="/mini-instagram/index.php">
             <input type="submit" value="Log out" />
         </form>
 

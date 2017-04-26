@@ -5,7 +5,7 @@
 <title>Mini Instagram</title>
 </head>
 <body>
-<form action="http://localhost/mini-instagram/login.php" method="post">
+<form action="/mini-instagram/login.php" method="post">
 
  
 <div id="fullscreen_bg" class="fullscreen_bg"/>
@@ -28,7 +28,7 @@
  
 </form>
     
-    <form action="http://localhost/mini-instagram/register.html">
+    <form action="/mini-instagram/register.html">
     <input type="submit" value="Go to register page" />
 </form>
 </body>
