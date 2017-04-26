@@ -1,18 +1,17 @@
 <html>
     <head>
         <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="index.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="index.css">
         <title>Add User</title>
     </head>
     <body>
-        
-        <div id="fullscreen_bg" class="fullscreen_bg"/>
-        
-        <?php
 
+        <div id="fullscreen_bg" class="fullscreen_bg"/>
+
+        <?php
         session_start();
         if (isset($_POST['login'])) {
 
@@ -33,43 +32,41 @@
                 if ($_check_username->num_rows > 0) {
                     // great, a user exists with the given username
                     $_user = $_check_username->fetch_assoc();
-                    if(password_verify($_POST['password'], $_user['password'])){
+                    if (password_verify($_POST['password'], $_user['password'])) {
 
                         $_SESSION["current_user"] = $_username;
 
                         header("location: main.php");
-
                     } else {
 
                         echo '<span style="color:#FF0000;text-align:center;">Incorrect password<br /></span>';
                         $data_missing[] = 'Password';
                     }
                 } else {
-                    echo '<span style="color:#FF0000;text-align:center;">A user does not exist with this username<br /></span>';                        
+                    echo '<span style="color:#FF0000;text-align:center;">A user does not exist with this username<br /></span>';
                     $data_missing[] = 'Username';
                 }
             }
 
             if (empty($_POST['password'])) {
-                echo '<span style="color:#FF0000;text-align:center;">You need to provide a password<br /></span>';   
+                echo '<span style="color:#FF0000;text-align:center;">You need to provide a password<br /></span>';
                 // Adds password to array
                 $data_missing[] = 'Password';
-
             }
 
 
             if (!empty($data_missing)) {
-                echo '<span style="color:#FF0000;text-align:center;">You need to enter the following data correctly<br /></span>';                
+                echo '<span style="color:#FF0000;text-align:center;">You need to enter the following data correctly<br /></span>';
 
                 foreach ($data_missing as $missing) {
                     echo '<span style="color:#FF0000;text-align:center;">' . $missing . '<br /></span>';
                 }
-            } 
+            }
         }
         ?>
-        
+
         <form action="index.php">
-        <input type="submit" value="Go back to login page" />
+            <input type="submit" value="Go back to login page" />
         </form>
     </body>
 </html>

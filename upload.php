@@ -1,10 +1,10 @@
 <html>
     <head>
         <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="index.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="index.css">
         <title>Add User</title>
     </head>
     <body>
@@ -13,7 +13,7 @@
 
         <?php
         session_start();
-        
+
         $target_dir = "uploads/" . $_SESSION["current_user"] . '/';
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
@@ -51,9 +51,9 @@
         } else {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                 echo "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
-                
-                
-                
+
+
+
                 header("Location: main.php");
             } else {
                 echo "Sorry, there was an error uploading your file.";

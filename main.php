@@ -1,11 +1,11 @@
 
 <html>
     <head>
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="index.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="index.css">
         <title>Mini Instagram</title>
     </head>
     <body>
@@ -31,8 +31,8 @@
         }
 
 
-        
-        $path    = 'uploads/';
+
+        $path = 'uploads/';
         $results = scandir($path);
         $directories = array();
         $images2display = array();
@@ -40,19 +40,20 @@
 
 
         foreach ($results as $result) {
-            if ($result === '.' or $result === '..') continue;
+            if ($result === '.' or $result === '..')
+                continue;
 
-            if (is_dir($path . '/' . $result)){
-                array_push($directories,$result);
+            if (is_dir($path . '/' . $result)) {
+                array_push($directories, $result);
             }
         }
 
         foreach ($directories as $directory) {
             $dirname = "uploads/" . $directory . '/';
-            $tempimages = glob($dirname."*.{jpg,jpeg,gif,png}",GLOB_BRACE);
-                foreach ($tempimages as $image) {
-                    array_push($images2display, $image);
-                }
+            $tempimages = glob($dirname . "*.{jpg,jpeg,gif,png}", GLOB_BRACE);
+            foreach ($tempimages as $image) {
+                array_push($images2display, $image);
+            }
         }
 
         foreach ($images2display as $file) {
@@ -64,7 +65,6 @@
         foreach ($images2displayWithKeys as $image) {
             echo '<img src="' . $image . '" height="420" width="420" /><br />';
         }
-
         ?>
 
 

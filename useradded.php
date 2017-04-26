@@ -1,16 +1,16 @@
 <html>
     <head>
         <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="index.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="index.css">
         <title>Add User</title>
     </head>
     <body>
-        
+
         <div id="fullscreen_bg" class="fullscreen_bg"/>
-        
+
         <?php
         if (isset($_POST['submit'])) {
 
@@ -50,13 +50,13 @@
                     $_check_email = $dbc->query("SELECT * FROM users WHERE email='$_email'"); // or die($mysqli->error());
                     // We know email exists if the rows returned are more than 0
                     if ($_check_email->num_rows > 0) {
-                        echo '<span style="color:#FF0000;text-align:center;">A user with the email: "' . $_email . '" already exists<br /></span>';                        
+                        echo '<span style="color:#FF0000;text-align:center;">A user with the email: "' . $_email . '" already exists<br /></span>';
                         //I add the email to the list of missing data, so that the user has to add another.
                         $data_missing[] = 'E-mail';
                     }
                 } else {
                     $data_missing[] = 'E-mail';
-                    echo '<span style="color:#FF0000;text-align:center;">The email entered is not a valid email<br /></span>';                    
+                    echo '<span style="color:#FF0000;text-align:center;">The email entered is not a valid email<br /></span>';
                 }
             }
 
@@ -122,7 +122,7 @@
                 }
             } else {
 
-                echo '<span style="color:#FF0000;text-align:center;">You need to enter the following data correctly<br /></span>';                
+                echo '<span style="color:#FF0000;text-align:center;">You need to enter the following data correctly<br /></span>';
 
                 foreach ($data_missing as $missing) {
                     echo '<span style="color:#FF0000;text-align:center;">' . $missing . '<br /></span>';
@@ -130,9 +130,9 @@
             }
         }
         ?>
-        
+
         <form action="/mini-instagram/register.html">
-        <input type="submit" value="Go back to register page" />
+            <input type="submit" value="Go back to register page" />
         </form>
     </body>
 </html>
