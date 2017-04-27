@@ -109,7 +109,8 @@ echo "</center>";
 
 function image_fix_orientation($filename) {
 
-  $exif = exif_read_data($filename);
+  @$exif = exif_read_data($filename);
+    
 
   if (!empty($exif['Orientation'])) {
 
