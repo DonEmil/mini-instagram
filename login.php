@@ -5,11 +5,14 @@
 
         <!-- Optional theme -->
         <link rel="stylesheet" href="index.css">
-        <title>Add User</title>
+        <title>Mini Instagram | Log In Error</title>
     </head>
     <body>
 
+
         <div id="fullscreen_bg" class="fullscreen_bg"/>
+    
+        <div id="error_msg">
 
         <?php
         session_start();
@@ -40,34 +43,37 @@
                         header("location: main.php");
                     } else {
 
-                        echo '<span style="color:#FF0000;text-align:center;">Incorrect password<br /></span>';
+                        echo '<span style="color:#FF0000;text-align:center;">Incorrect password.<br /></span>';
                         $data_missing[] = 'Password';
                     }
                 } else {
-                    echo '<span style="color:#FF0000;text-align:center;">A user does not exist with this username<br /></span>';
+                    echo '<span style="color:#FF0000;text-align:center;">User not found.<br /></span>';
                     $data_missing[] = 'Username';
                 }
             }
 
             if (empty($_POST['password'])) {
-                echo '<span style="color:#FF0000;text-align:center;">You need to provide a password<br /></span>';
+                echo '<span style="color:#000000;text-align:center;">Please provide a password.<br /></span>';
                 // Adds password to array
                 $data_missing[] = 'Password';
             }
 
 
             if (!empty($data_missing)) {
-                echo '<span style="color:#FF0000;text-align:center;">You need to enter the following data correctly<br /></span>';
+                echo '<span style="color:#000000;text-align:center;">You need to enter the following data correctly:<br /></span>';
 
                 foreach ($data_missing as $missing) {
-                    echo '<span style="color:#FF0000;text-align:center;">' . $missing . '<br /></span>';
+                    echo '<span style="color:#000000;text-align:center;">' . $missing . '<br /></span>';
                 }
             }
         }
         ?>
+            
+        </div>
 
-        <form action="index.php">
-            <input type="submit" value="Go back to login page" />
+        <form class="switch-form" action="index.php">
+            <input type="submit" value="Return to login page" />
         </form>
+    
     </body>
 </html>

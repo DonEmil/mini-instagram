@@ -5,7 +5,7 @@
 
         <!-- Optional theme -->
         <link rel="stylesheet" href="index.css">
-        <title>Add User</title>
+        <title>Mini Instagram | Create User</title>
     </head>
     <body>
 
@@ -83,7 +83,7 @@
             if ($_password != $_confirm_password) {
                 //I add 'Confirm Password' to our missing data to make sure that we won't continue the process of registering this user.
                 $data_missing[] = 'Confirm Password';
-                echo '<span style="color:#FF0000;text-align:center;">Your password is not matching your confirmed password<br /></span>';
+                echo '<span style="color:#FF0000;text-align:center;">Your password does not match your confirmed password<br /></span>';
             } else {
                 //Password and confirmed password matched, and we can now encrypt the password.
                 $_password = $dbc->escape_string(password_hash($_POST['password'], PASSWORD_BCRYPT));
@@ -132,7 +132,7 @@
         ?>
 
         <form action="/mini-instagram/register.html">
-            <input type="submit" value="Go back to register page" />
+            <input type="submit" value="Go back to register page"/>
         </form>
     </body>
 </html>

@@ -1,4 +1,3 @@
-
 <html>
     <head>
         <!-- Latest compiled and minified CSS -->
@@ -13,15 +12,18 @@
         
         <div id="fullscreen_bg_white" class="fullscreen_bg_white"/>
 
-        <form action="/mini-instagram/index.php">
-            <input type="submit" value="Log out" />
+       
+        <form id="log_out" action="/mini-instagram/index.php">
+            <input type="submit" value="Log out"/>
         </form>
 
+        <div id="upload">
         <form action="upload.php" method="post" enctype="multipart/form-data">
-            Select image to upload:
-            <input type="file" name="fileToUpload" id="fileToUpload">
-            <input type="submit" value="Upload Image" name="submit">
+            Select an image to upload:
+            <input id="choose_file" type="file" name="fileToUpload" id="fileToUpload">
+            <input id="upload_image" type="submit" value="Upload Image" name="submit">
         </form>
+        </div>
 
         <?php
         session_start();
@@ -87,7 +89,7 @@
 
         foreach ($images2displayWithKeys as $image) {
             $parent = basename(dirname($image));
-            echo "<p>This image was uploaded by user: $parent</p>";
+            echo "<p>$parent uploaded:</p>";
             echo '<img src="' . $image . '"class="img-circle" height="420" width="420" /><br />';
             echo "<br /> <br />";
         }
@@ -99,7 +101,7 @@
                     </form>';
             echo "<br />";
         }
-        echo '  <form action="/mini-instagram/userclicked.php" method="post" >
+        echo '  <form action="/mini-instagram/userclicked.php" method="post">
                     <input " type="submit" value="show_all" name="submit">
                     </form>';
         echo "<br />";

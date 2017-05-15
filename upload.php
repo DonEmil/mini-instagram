@@ -5,7 +5,8 @@
 
         <!-- Optional theme -->
         <link rel="stylesheet" href="index.css">
-        <title>Add User</title>
+        
+        <title>Mini Instagram | Upload</title>
     </head>
     <body>
 
