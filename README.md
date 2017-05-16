@@ -14,7 +14,7 @@ Instructions:
  - Place the "mini-instagram" folder under the "htdocs" folder under "xamppfiles"
  - Place the "mysqli_connect.php" file next to "mini-instagram", under the "htdocs" folder.
 
-Start he webserver, and the website will be available at localhost/mini-instagram, but it will not work without a database.
+Start the webserver, and the website will be available at localhost/mini-instagram, but it will not work without a database.
 
  - Create a new database in MySQL called instagram, and a new table called "users"
  - "users" have 4 columns called:
