@@ -1,6 +1,6 @@
   body {
     padding-top: 120px;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
     background-color: whitesmoke;
   }
 
@@ -46,7 +46,7 @@
     max-width: 280px;
     padding: 15px;
     margin: 50px auto 0px;
-  }
+}
 
   .form-signin .form-signin-heading, .form-signin {
     margin-bottom: 10px;
@@ -111,39 +111,163 @@
     image-orientation: from-image;
  }
 
-#log_out {
-    text-align: right;
-    margin-top: 25px;
-    margin-right: 25px;
-}
-
 #upload_image {
     margin: 1px auto 5px;
+    background-color: lightgrey;
+    border: none;
+    width: 150px;
+    border-radius: 7px;
 }
 
 #choose_file {
-    padding: 1px;
+    padding: 5px;
     margin: 10px auto;
-    background-color: white;
+    background-color: ghostwhite;
     border: solid;
+    border-color: lightgrey;
     border-width: 1px;
     border-radius: 5px;
     
-}
-
-.upload {
-    background-color: white;
-    width: 300px;
-    border-radius: 7px;
-    padding: 10px;
-    margin: 20px;
 }
 
 #error_msg {
     text-align: center;
     margin: 50px auto 50;
     padding: 10px;
+    background-color: whitesmoke;
+    width: 300px;
+    border-color: white;
+    border-width; 1px;
+    border-radius: 7px;
+}
+
+.form-container{
+    border: solid;
+    border-color: white;
+    border-width: 1px;
+    border-radius: 7px;
+    background-color: whitesmoke;
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#newaccount {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+header{
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-image: url('http://cleancanvas.herokuapp.com/img/backgrounds/color-splash.jpg');
+    background-size: cover;
+    text-align: left;
+    height: 70px;
+}
+
+#log_out {
+    float: right;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.button2{
     background-color: white;
+    border-radius: 7px;
+    border: none;
+    color: black;
+}
+
+#mainheader{
+    text-align: left;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: 0;
+    padding-left: 70px;
+    overflow: scroll;
+    
+}
+
+#leftmenu{
+    background-color: whitesmoke;
+    height: 100%;
+    width: 340px;
+    margin-top: 90px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 10px;
+    padding-bottom: 0;
+    float: left;
+    border-radius: 7px;
+    position: fixed;
+}
+
+.boxtitle{
+    background-color: white;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom-color: whitesmoke;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+}
+
+#upload {
+    text-align: center;
+    background-color: ghostwhite;
     width: 300px;
     border-radius: 7px;
+    padding: 0;
+    padding-bottom: 10px;
+    margin: 20px;
+}
+
+.userlist{
+    background-color: ghostwhite;
+    text-align: center;
+    width: 300px;
+    border-radius: 7px;
+    padding: 0;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 0px;
+    margin-left:  20px;
+    height: 50%;
+}
+
+.scrollbox {
+    /* height: 50vh; */
+    height: 75%;
+    overflow: scroll;
+}
+
+.imagefeed{
+    background-color: whitesmoke;
+    border-radius: 7px;
+    margin-top: 110px;
+    margin-right: 100px;
+    margin-left: 400px;
+    width: 50vw;
+    overflow: auto;
+    padding-top: 0;
+}
+
+.imagebox{
+    background-color: white;
+    border-radius: 11px;
+    min-width: 450;
+}
+
+.button1{
+    background-color: skyblue;
+    border: none;
+    width: 200px;
+    border-radius: 7px;
+    color: azure;
 }

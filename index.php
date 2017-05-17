@@ -7,16 +7,19 @@
         <link rel="stylesheet" href="index.css">
         <title>Mini Instagram | Sign In</title>
     </head>
+
     <body>
+        
+        <div id="fullscreen_bg" class="fullscreen_bg">
+        <div class="container">
+            
+        <h1 class="form-signin-heading">Mini Instagram</h1>
+        
         <form action="/mini-instagram/login.php" method="post">
-
-
-            <div id="fullscreen_bg" class="fullscreen_bg">
-
-            <div class="container">
+            
+            <div class="form-container">
 
                 <form class="form-signin">
-                    <h1 class="form-signin-heading text-muted" >Sign In</h1><br>
                     
                     <input type="text" class="form-control" name="username" placeholder="Username" required="" autofocus=""><br>
 
@@ -24,16 +27,21 @@
                 
                     <button class="btn btn-lg btn-primary btn-block" name="login" value="Send" type="submit">            
                         Sign In
-                    </button>        
+                    </button>
+                    
                 </form>
                 
-                <form class="switch-form" action="/mini-instagram/register.html">
-                <input type="submit" value="Register new user"/>
-            </form>
-
             </div>
-
+            
+                <form class="switch-form" action="/mini-instagram/register.html">
+                    <button class="button2" type="submit" value="Register new user">Register new user</button>
+                </form>
 
         </form>
+        
+            
+        </div>  
+        </div>
+    
     </body>
 </html>

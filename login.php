@@ -31,6 +31,7 @@
                 // Trim white space from the username and store the username
                 $_username = trim($_POST['username']);
                 $_check_username = $dbc->query("SELECT * FROM users WHERE username='$_username'"); // or die($mysqli->error());
+                
                 // We know username exists if the rows returned are more than 0
                 if ($_check_username->num_rows > 0) {
                     // great, a user exists with the given username
@@ -72,7 +73,7 @@
         </div>
 
         <form class="switch-form" action="index.php">
-            <input type="submit" value="Return to login page" />
+            <button class="button2" type="submit" value="Return to login page" >Return to login page</button>
         </form>
     
     </body>
