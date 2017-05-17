@@ -124,7 +124,10 @@
         }
 
         foreach ($images2display as $file) {
-            $images2displayWithKeys[filectime($file)] = $file;
+
+            $filecreationtime = check_ctime(filectime($file), $images2displayWithKeys);
+            
+            $images2displayWithKeys[$filecreationtime] = $file;
         }
 
 
@@ -176,6 +179,18 @@ function image_fix_orientation($filename) {
     imagejpeg($image, $filename, 100);
 
   }
+
+}
+
+function check_ctime($ctime, $array) {
+
+
+    if(array_key_exists ($ctime, $array)) {
+        $ctime++;
+        return check_ctime($ctime, $array);
+    } else {
+        return $ctime;
+    }
 
 }
 
