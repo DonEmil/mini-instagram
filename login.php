@@ -30,7 +30,7 @@
 
 				// Trim white space from the username and store the username
 				$_username = trim($_POST['username']);
-				$_check_username = $dbc->query("SELECT * FROM users WHERE username='$_username'"); // or die($mysqli->error());
+				$_check_username = $dbc->query("SELECT * FROM users WHERE username='$_username'"); 
 				
 				// Username exists if the rows returned are more than 0
 				if ($_check_username->num_rows > 0) {

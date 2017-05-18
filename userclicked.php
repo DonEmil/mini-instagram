@@ -13,11 +13,9 @@
 
 		<?php
 			session_start();
-			echo "TEST1";
 			if (isset($_POST['submit'])) {
 				
 				$_SESSION["view_user"] = $_POST['submit'];
-				echo "TEST2"; 
 				echo "<p> the value of the post was:" . $_POST['submit'] . "</p>";
 				header("location: main.php");
 			}

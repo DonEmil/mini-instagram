@@ -95,34 +95,28 @@
 			if (empty($data_missing)) {
 
 				$query = "INSERT INTO users (username, email, password, confirm_password) VALUES (?, ?, ?, ?)";
-
 				$stmt = mysqli_prepare($dbc, $query);
-
 				mysqli_stmt_bind_param($stmt, "ssss", $_username, $_email, $_password, $_confirm_password);
-
 				mysqli_stmt_execute($stmt);
-
 				$affected_rows = mysqli_stmt_affected_rows($stmt);
 
 				if ($affected_rows == 1) {
 
 					echo 'User Entered';
-
 					mysqli_stmt_close($stmt);
-
 					mysqli_close($dbc);
-
 					header("Location: index.php");
 					die();
+
 				} else {
 
 					echo 'Error Occurred<br />';
 					echo mysqli_error();
-
 					mysqli_stmt_close($stmt);
-
 					mysqli_close($dbc);
+
 				}
+				
 			} else {
 
 				echo '<span style="color:#000000;text-align:center;">You need to enter the following data correctly:<br /></span>';

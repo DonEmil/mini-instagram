@@ -119,6 +119,14 @@
 			$dirname = "uploads/" . $_SESSION["view_user"] . '/';
 				$tempimages = glob($dirname . "*.{jpg,jpeg,gif,png,JPG,JPEG,GIF,PNG}", GLOB_BRACE);
 				foreach ($tempimages as $image) {
+
+					if(pathinfo($image, PATHINFO_EXTENSION) == "jpg" ||
+						pathinfo($image, PATHINFO_EXTENSION) == "jpeg" ||
+						pathinfo($image, PATHINFO_EXTENSION) == "JPG" ||
+						pathinfo($image, PATHINFO_EXTENSION) == "JPEG"){
+						image_fix_orientation($image);
+						}
+						
 					array_push($images2display, $image);
 				}
 		}
