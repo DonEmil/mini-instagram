@@ -30,10 +30,10 @@
                 $_username = trim($_POST['username']);
                 $_check_username = $dbc->query("SELECT * FROM users WHERE username='$_username'"); // or die($mysqli->error());
                 
-                // We know username exists if the rows returned are more than 0
+                // Username exists if the rows returned are more than 0
                 if ($_check_username->num_rows > 0) {
                     echo '<span style="color:#FF0000;text-align:center;">A user with the username: "' . $_username . '" already exists<br /></span>';
-                    //I add the username to the list of missing data, so that the user has to add another.
+                    //Add the username to the list of missing data, so that the user has to add another.
                     $data_missing[] = 'Username';
                 }
             }
@@ -51,10 +51,10 @@
 
 
                     $_check_email = $dbc->query("SELECT * FROM users WHERE email='$_email'"); // or die($mysqli->error());
-                    // We know email exists if the rows returned are more than 0
+                    // Email exists if the rows returned are more than 0
                     if ($_check_email->num_rows > 0) {
                         echo '<span style="color:#FF0000;text-align:center;">A user with the email "' . $_email . '" already exists<br /></span>';
-                        //I add the email to the list of missing data, so that the user has to add another.
+                        //Add the email to the list of missing data, so that the user has to add another.
                         $data_missing[] = 'E-mail';
                     }
                 } else {
@@ -84,11 +84,11 @@
             }
 
             if ($_password != $_confirm_password) {
-                //I add 'Confirm Password' to our missing data to make sure that we won't continue the process of registering this user.
+                //Add 'Confirm Password' to our missing data to make sure that we won't continue the process of registering this user.
                 $data_missing[] = 'Confirm Password';
                 echo '<span style="color:#FF0000;text-align:center;">Passwords don&#39;t match.<br /></span>';
             } else {
-                //Password and confirmed password matched, and we can now encrypt the password.
+                //Password and confirmed password matched, encrypt the password.
                 $_password = $dbc->escape_string(password_hash($_POST['password'], PASSWORD_BCRYPT));
             }
 

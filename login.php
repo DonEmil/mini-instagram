@@ -32,9 +32,9 @@
                 $_username = trim($_POST['username']);
                 $_check_username = $dbc->query("SELECT * FROM users WHERE username='$_username'"); // or die($mysqli->error());
                 
-                // We know username exists if the rows returned are more than 0
+                // Username exists if the rows returned are more than 0
                 if ($_check_username->num_rows > 0) {
-                    // great, a user exists with the given username
+                    // User exists with the given username
                     $_user = $_check_username->fetch_assoc();
                     if (password_verify($_POST['password'], $_user['password'])) {
 
